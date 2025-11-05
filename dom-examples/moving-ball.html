@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Moving Ball</title>
+    <style>
+      #box {
+        position: relative;
+        width: 800px;
+        height: 30px;
+        padding: 10px;
+        background: darkred;
+        border: 5px solid darkblue;
+      }
+      #ball {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        background: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <div id="ball"></div>
+    </div>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+    <script>
+      let left = 0;
+      let position = "right";
+
+      function move() {
+        if (position === "right") {
+          left++;
+          document.querySelector("#ball").style.left = `${left}px`;
+          if (left > 780) position = "left";
+        } else {
+          left--;
+          document.querySelector("#ball").style.left = `${left}px`;
+          if (left < 1) position = "left";
+        }
+      }
+
+      let interval = setInterval(move, 20);
+      document.querySelector("#start").onclick = () => {
+        interval = setInterval(move, 20);
+      };
+      document.querySelector("#stop").onclick = () => {
+        clearInterval(interval);
+      };
+    </script>
+  </body>
+</html>
