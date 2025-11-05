@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carousel</title>
+    <style>
+      .boxes {
+        width: 800px;
+        margin: 20px auto;
+        text-align: center;
+      }
+      .box {
+        height: 500px;
+      }
+      #box1 {
+        background: darkred;
+      }
+      #box2 {
+        background: darkgreen;
+        display: none;
+      }
+      #box3 {
+        background: darkcyan;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxes">
+      <div class="box" id="box1"></div>
+      <div class="box" id="box2"></div>
+      <div class="box" id="box3"></div>
+
+      <button id="prev">prev</button>
+      <button id="next">next</button>
+    </div>
+
+    <script>
+      // Initialize for box 1 and hanlde with id
+      let box = 1;
+
+      // fucntion for next button
+      function next() {
+        console.log("hello");
+        document.querySelector(`#box${box}`).style.display = "none";
+        box++;
+        if (box > 3) box = 1;
+        document.querySelector(`#box${box}`).style.display = "block";
+      }
+
+      // fucntion for prev button
+      function prev() {
+        document.querySelector(`#box${box}`).style.display = "none";
+        box--;
+        if (box < 1) box = 3;
+        document.querySelector(`#box${box}`).style.display = "block";
+      }
+      document.querySelector("#prev").onclick = prev;
+      document.querySelector("#next").onclick = next;
+    </script>
+  </body>
+</html>
