@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fetch Promise</title>
+  </head>
+  <body>
+    <script>
+      fetch("https://supersimplebackend.dev/products")
+        .then((response) => response.json())
+
+        .then((data) => {
+          const ball = data.find((product) => product.name.includes("ball"));
+          console.log(ball);
+        });
+    </script>
+  </body>
+</html>
