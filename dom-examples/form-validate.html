@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form Validate</title>
+    <style>
+      label {
+        display: none;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Add Number</h1>
+    <div class="form">
+      <div>
+        <input type="text" id="a" />
+        <label for="a">Please enter correct number</label>
+      </div>
+      <div>
+        <input type="text" id="b" />
+        <label for="b">Please enter correct number</label>
+      </div>
+      <div id="result"></div>
+      <button id="add">add</button>
+    </div>
+
+    <script>
+      const inputA = document.querySelector("#a");
+      const inputB = document.querySelector("#b");
+      const labelA = document.querySelector("[for=a]");
+      const labelB = document.querySelector("[for=b]");
+
+      inputA.addEventListener("keyup", () => {
+        const num = Number(inputA.value);
+        if (!isNaN(num)) {
+          labelA.style.display = "none";
+        }
+      });
+      inputB.addEventListener("keyup", () => {
+        const num = Number(inputB.value);
+        if (!isNaN(num)) {
+          labelB.style.display = "none";
+        }
+      });
+      document.querySelector("#add").addEventListener("click", () => {
+        let result = Number(inputA.value) + Number(inputB.value);
+
+        // validate input
+
+        if (isNaN(Number(inputA.value))) {
+          labelA.style.display = "block";
+        }
+        if (isNaN(Number(inputB.value))) {
+          labelB.style.display = "block";
+        }
+        if (!isNaN(result)) {
+          document.querySelector("#result").textContent = result;
+        }
+      });
+    </script>
+  </body>
+</html>
