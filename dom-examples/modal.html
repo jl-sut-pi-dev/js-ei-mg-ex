@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Modal</title>
+    <style>
+      button {
+        padding: 10px 40px;
+      }
+      .container {
+        display: none;
+        justify-content: cneter;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .modal {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        width: 600px;
+        background: white;
+        border: 1px solid cornflowerblue;
+      }
+      .modal h3 {
+        margin: 0;
+        padding: 8px;
+        background: cornflowerblue;
+        color: white;
+      }
+      .close {
+        float: right;
+        color: pink;
+        cursor: pointer;
+      }
+      .content {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Modal</h2>
+    <button>show Modal</button>
+    <div class="container">
+      <div class="modal">
+        <h3>Modal Title <span class="close">&times;</span></h3>
+        <div class="content">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque dolor
+          ipsa dolores rerum modi quidem pariatur vitae laudantium suscipit
+          debitis hic dolorem doloribus eligendi, numquam id facilis
+          praesentium, recusandae delectus.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector("button").addEventListener("click", () => {
+        document.querySelector(".container").style.display = "flex";
+      });
+      document.querySelector(".close").addEventListener("click", () => {
+        document.querySelector(".container").style.display = "none";
+      });
+    </script>
+  </body>
+</html>

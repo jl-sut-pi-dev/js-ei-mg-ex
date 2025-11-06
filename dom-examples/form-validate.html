@@ -43,16 +43,18 @@
         }
       });
       document.querySelector("#add").addEventListener("click", () => {
-        let result = Number(inputA.value) + Number(inputB.value);
-
         // validate input
 
         if (isNaN(Number(inputA.value))) {
           labelA.style.display = "block";
         }
+
         if (isNaN(Number(inputB.value))) {
           labelB.style.display = "block";
         }
+
+        let result = Number(inputA.value) + Number(inputB.value);
+
         if (!isNaN(result)) {
           document.querySelector("#result").textContent = result;
         }

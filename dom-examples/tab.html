@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>tab</title>
+    <style>
+      .bar {
+        background: darkred;
+        display: flex;
+        padding: 20px 0px 0px 20px;
+        gap: 10px;
+      }
+      .tab {
+        list-style-type: none;
+        background: white;
+        padding: 20px;
+        cursor: pointer;
+      }
+      #tab2 {
+        opacity: 0.5;
+      }
+      #content2 {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="bar">
+      <li class="tab" id="tab1">Tab One</li>
+      <li class="tab" id="tab2">Tab One</li>
+    </ul>
+    <div class="content" id="content1">
+      <h4>Content 1</h4>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam tempore,
+      a odit optio animi adipisci, dignissimos recusandae repudiandae saepe,
+      deserunt quidem non nam corporis eius perferendis placeat atque enim ipsa!
+    </div>
+    <div class="content" id="content2">
+      <h4>Content 2</h4>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam tempore,
+      a odit optio animi adipisci, dignissimos recusandae repudiandae saepe,
+      deserunt quidem non nam corporis eius perferendis placeat atque enim ipsa!
+    </div>
+    <script>
+      const tab1 = document.querySelector("#tab1");
+      const tab2 = document.querySelector("#tab2");
+      const content1 = document.querySelector("#content1");
+      const content2 = document.querySelector("#content2");
+
+      tab1.addEventListener("click", () => {
+        tab1.style.opacity = 1;
+        tab2.style.opacity = 0.5;
+        content1.style.display = "block";
+        content2.style.display = "none";
+      });
+
+      tab2.addEventListener("click", () => {
+        tab2.style.opacity = 1;
+        tab1.style.opacity = 0.5;
+        content2.style.display = "block";
+        content1.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
